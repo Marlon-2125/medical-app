@@ -1,0 +1,63 @@
+<ngx-loading-bar></ngx-loading-bar>
+
+<div id="main">
+    <div class="container">
+        <div class="sc-title parent-div">
+            Lista de <span>Usuarios. </span><a [routerLink]="['/administration/access-request']" class="primary-theme-button slim slim-xs danger-theme-button">Ver Alertas Urgentes</a>
+            <span (click)="exportCsv()" class="export-csv"></span>
+        </div>
+        <br>
+        <div class="users-search-form">
+            <div class="users-search-address-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-icon matPreffix>search</mat-icon>
+                    <input matInput (keyup)="applyFilter($event)" value="" placeholder="Escriba los términos de búsqueda" name="applyFilter">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <table width="100%" mat-table [dataSource]="dataSourceX" class="tb-contingency-request" matSort>
+            
+            <!-- Position Column -->
+            <ng-container matColumnDef="names">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre. </th>
+                <td mat-cell *matCellDef="let element"> {{element.paciente}} </td>
+            </ng-container>
+
+            <!-- Reference Column -->
+            <ng-container matColumnDef="region">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ult. Signo Vital. </th>
+                <td mat-cell *matCellDef="let element"> {{element.signo}} </td>
+            </ng-container>
+
+            <!-- Date Request Column -->
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Opciones. </th>
+                <td mat-cell *matCellDef="let element">
+                    <ul class="list-options-users">
+                        <li><a [routerLink]="['/administration/users-details', element.userId]"><img width="24" src="assets/img/options/view.png"></a></li>
+                        <li><a [routerLink]="['/administration/edit-users', element.userId]"><img width="24" src="assets/img/options/edit.png"></a></li>
+                        <li><a (click)="onDeleteUser($event, element)"><img width="24" src="assets/img/options/trash.png"></a></li>
+                    </ul>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div class="loading-circle" *ngIf="loadingData">
+            <div class="loadingio-spinner-ripple">
+                <div class="ldio">
+                    <div></div><div></div>
+                </div>
+            </div>
+        </div>
+
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+
+        <button [routerLink]="['/administration/create-users']" class="cg-link primary-theme-button" [class.spinner]="loading"
+            [disabled]="loading" color="primary">Crear Usuario</button>
+
+    </div>
+</div>

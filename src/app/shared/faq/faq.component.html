@@ -1,0 +1,112 @@
+<header>
+  <div class="hd-img-logo">
+      <a href="">
+          <img src="./assets/img/logo.png">
+      </a>
+  </div>
+  <div class="hd-contact-phone">
+      <a [routerLink]="['/faq']">
+          <img src="./assets/img/help.png" alt="">
+      </a>
+  </div>
+</header>
+<div id="main">
+    <div class="container">
+        <div class="sc-title align-center">
+            <span>Preguntas Frecuentes</span>
+        </div>
+        <br>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>1. </strong> ¿Cómo puedo recuperar la contraseña?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>La contraseña se puede recuperar, dando clic en el link "¿Tiene problemas para ingresar?" en la ventana
+                del login. Para más información ingrese al siguiente tutorial.
+            </p>
+            <button class="primary-theme-button" (click)="openDialog('586537721')" color="primary"> Ver Tutorial </button >
+        </mat-expansion-panel>
+        <br>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>2. </strong> ¿Cómo puedo verificar el estado de una contingencia?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p> Primero se debe iniciar sesión, luego cuando le de clic en el boton ingresar, le aparecerá la listada de 
+                contingencias realizadas, las contingencias que tienen una X son las rechazadas y las que tienen un chulo
+                son las aprobadas. Para más información ingrese al siguiente tutorial.
+            </p>
+            <button class="primary-theme-button" (click)="openDialog('586537705')" color="primary"> Ver Tutorial </button >
+        </mat-expansion-panel>
+        <br>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>3. </strong>  ¿Cómo puedo ver mi perfil o ver las preguntas frecuentes?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p> En la parte superior derecha, puede encontrar el icono de preguntas frecuentes y Mi Perfil.
+                En el siguiente tutorial te lo explicamos mejor.
+            </p>
+            <button class="primary-theme-button" (click)="openDialog('586537679')" color="primary"> Ver Tutorial </button >
+        </mat-expansion-panel>
+        <br>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>4. </strong> ¿Cómo puedo Iniciar Sesión?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>En el siguiente totorial, se explicará muy detalladamente todo lo que tiene que ver
+              con el inicio de sesión.
+            </p>
+            <button class="primary-theme-button" (click)="openDialog('586537659')" color="primary"> Ver Tutorial </button >
+        </mat-expansion-panel>
+        <br>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>5. </strong> ¿Cómo puedo manejar de forma rapida la aplicación?
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>En el siguiente totorial, se explicará muy detalladamente el funcionamiento de la aplicación 
+              de una forma sencilla y rapida.
+            </p>
+            <button class="primary-theme-button" (click)="openDialog('586537640')" color="primary"> Ver Tutorial </button >  
+        </mat-expansion-panel>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <strong>6. </strong> ¿Cómo puedo enviar una contingencia?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Para enviar una contingencia, se debe ingresar a contingencias y darle clic en el boton
+             perdir ayuda en contingencia. Para más información, ver el siguiente tutorial.
+          </p>
+          <button class="primary-theme-button" (click)="openDialog('586537600')" color="primary"> Ver Tutorial </button >  
+        </mat-expansion-panel>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <strong>7. </strong> ¿Cómo puedo descargar la aplicación en un dispositivo móvil?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Para descargar la aplicación en tu dispositivo, en el siguiente link te indicamos la forma
+             de hacerlo.
+          </p>
+          <button class="primary-theme-button" (click)="openDialog('586537564')" color="primary"> Ver Tutorial </button >  
+        </mat-expansion-panel>
+        <br>
+        <div *ngIf="userRole == 1">
+            <p class="sc-paragraph">Para mas información, debe ingresar al siguiente link: </p><a href="https://firebasestorage.googleapis.com/v0/b/proyecto-prueba-c806b.appspot.com/o/Manual%20Interno%20Asistente%20de%20Campo.pdf?alt=media&amp;token=23f47c03-c521-4fff-b7ef-7097678d0bab">Manual Interno Asistente de Campo</a>
+        </div>
+        <br>
+    </div>
+    <div [routerLink]="['/login']" class="floating-back">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+  </div>
+</div>

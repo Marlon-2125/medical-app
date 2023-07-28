@@ -1,0 +1,10 @@
+@media (max-width: 470px) {
+    .half-part{
+        width: 51%;
+        float: left;
+    }
+    
+    .align-right{
+        text-align: start;
+    }
+}

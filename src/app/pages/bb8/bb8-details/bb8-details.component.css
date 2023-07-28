@@ -1,0 +1,12 @@
+.dt-container-bb8{
+    background: #fff;
+    padding: 12px 15px 81px 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.14);
+}
+
+.dt-info-bb8{
+    display: inline;
+    margin-top: 5px;
+    color: #242a2e;
+}

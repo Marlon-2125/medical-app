@@ -1,0 +1,118 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title align-center">
+            <span>Formulario de Solicitud</span>
+        </div>
+        <p class="sc-paragraph">
+            Diligencie el siguiente formulario para recibir ayuda del analista de contingencias.
+        </p>
+        <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+            <div class="cty-task-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Pedido</mat-label>
+                    <input matInput formControlName="taskCty" type="text"
+                        placeholder="Escriba el identificador de su tarea" autocomplete="off">
+                    <mat-icon matSuffix>assignment</mat-icon>
+                    <mat-error *ngIf="requestForm.controls.taskCty.dirty && requestForm.controls.taskCty.invalid ">
+                        El campo de pedido solo puede contener <strong>números y guiones medios.</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="cty-product-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Tipo de Producto</mat-label>
+                    <mat-select formControlName="productCty" (selectionChange)="filterProducts($event)" autocomplete="off" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsProductCty" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>tipo de producto</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="cty-type-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Tipo de Contingencia</mat-label>
+                    <mat-select formControlName="typeCty" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsTypeCty" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>tipo de contingencia</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="cty-details-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Detalles de la Solicitud</mat-label>
+                    <input matInput formControlName="detailsCty" type="text"
+                        placeholder="Escriba los detalles de la solicitud que desea enviar" autocomplete="off">
+                    <mat-icon matSuffix>subject</mat-icon>
+                    <mat-error
+                        *ngIf="requestForm.controls.detailsCty.dirty && requestForm.controls.detailsCty.invalid ">
+                        El detalle de la solicitud es <strong>obligatorio</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="cty-macon-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Mac Entra</mat-label>
+                    <mat-chip-list #chipList1 aria-label="MacOn">
+                        <mat-chip *ngFor="let item of macOn" [selectable]="selectable" [removable]="removable"
+                            (removed)="removeMacOn(item)">
+                            {{item.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Escribe el o los mac que entran..." multiple formControlName="macInCty" [matChipInputFor]="chipList1"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="addMacOn($event)" autocomplete="off">
+                    </mat-chip-list>
+                    <mat-icon matSuffix class="link-barcode-scanner" (click)="onBarcodeScan('macIn')">scanner</mat-icon>
+                </mat-form-field>                         
+            </div>
+            <div class="cty-macin-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Mac Sale</mat-label>
+                    <mat-chip-list #chipList2 aria-label="MacOut">
+                        <mat-chip *ngFor="let item of macOut" [selectable]="selectable" [removable]="removable"
+                            (removed)="removeMacOut(item)">
+                            {{item.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Escribe el o los mac que salen..." multiple formControlName="macOutCty" [matChipInputFor]="chipList2"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="addMacOut($event)" autocomplete="off">
+                    </mat-chip-list>
+                    <mat-icon matSuffix class="link-barcode-scanner" (click)="onBarcodeScan('macOut')">scanner</mat-icon>
+                </mat-form-field>
+            </div>            
+            <div class="cty-identification-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>N° Identificación</mat-label>
+                    <input matInput formControlName="userIdentificationCty" type="text">
+                    <mat-icon matSuffix>assignment_ind</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="cty-email-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Correo Electrónico</mat-label>
+                    <input matInput formControlName="emailUsrCty" type="text">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="hidden-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput formControlName="userIdCty" type="text">
+                </mat-form-field>
+            </div>
+            <button class="cty-submit-form primary-theme-button" [class.spinner]="loading" [disabled]="loading"
+                type="submit" color="primary">Enviar Solicitud</button>
+        </form>
+    </div>
+    <div [routerLink]="['/contingencies/dashboard']" class="floating-back">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+.side-nav-menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(200deg, linear-gradient(-20deg, #d558c8 0%, #24d292 100%), linear-gradient(-20deg, #d558c8 0%, #24d292 100%), linear-gradient(-20deg, #d558c8 0%, #24d292 100%));
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.open {
+    pointer-events: initial;
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-nav-menu nav {
+    text-align: center;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-nav-menu nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.side-nav-menu nav ul li {
+    align-items: center;
+    flex: 1;
+    line-height: 20vh;
+}
+
+.side-nav-menu nav ul li a {
+    font-size: 1.5em;
+    transition: all 0.5s ease;
+    display: block;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.side-nav-menu nav ul li a:hover {
+    color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.side-nav-menu nav ul li a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.side-nav-menu nav ul li a:before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    bottom: 0;
+    left: 25%;
+    background: white;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+@media screen and (min-width: 600px) {
+    .side-nav-menu nav ul li a {
+        font-size: 3em;
+    }
+}
+
+.side-nav-menu .close {
+    position: fixed;
+    top: 40px;
+    right: 60px;
+    color: white;
+    z-index: 3;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+.side-nav-menu .close span, .side-nav-menu .close span:before, .side-nav-menu .close span:after {
+    border-radius: 4px;
+    height: 5px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    display: block;
+    content: "";
+}
+
+.side-nav-menu .close span {
+    background: transparent;
+}
+
+.side-nav-menu .close span:before {
+    transform: rotate(45deg);
+}
+
+.side-nav-menu .close span:after {
+    transform: rotate(-45deg);
+}
+
+.side-nav-menu .outer-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 85px;
+    height: 85px;
+    cursor: pointer;
+}

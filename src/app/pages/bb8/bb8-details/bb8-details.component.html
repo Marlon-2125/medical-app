@@ -1,0 +1,51 @@
+<ngx-loading-bar [color]="'linear-gradient(-20deg, #d558c8 0%, #24d292 100%)'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title">
+            <span>Detalles de Servicio</span>
+        </div>
+        <p class="sc-paragraph">
+            Estas son las solicitudes de servicio más recientes en tu cuenta.
+        </p>
+
+        <div class="dt-container-bb8">
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Nombre: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>Marlon Andrés Navarrete Sánchez</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Ciudad/Región: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>Medellín - Antioquia</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title">Dirección Completa: </div>
+                <div class="dt-info-bb8">
+                    <p>Kra 10 # 74 - 10 APT 101 - LOS ÁLAMOS
+                    </p>
+                </div>
+            </div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Teléfono de Contacto: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>3200000000</p>
+                </div>         
+            </div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Estado del Servicio: </div>
+                <div class="dt-info one-third-part align-right">
+                    <img src="../../../assets/img/services/service-wifi.png">
+                    <img src="../../../assets/img/services/service-tv.png">
+                    <img src="../../../assets/img/services/service-phone.png"> 
+                </div>        
+            </div>
+
+        </div>
+        <button [routerLink]="['/bb8/bb8-search']" class="primary-theme-button" >Volver al Inicio</button>
+    </div>
+</div>

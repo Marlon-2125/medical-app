@@ -1,0 +1,57 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title">
+            <span>Detalles del Usuario</span>
+        </div>
+        <div class="dt-container">
+            <div class="dt-item">
+                <div class="dt-title half-part">Nombre: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.names}} {{user.surnames}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Identificación: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.type_ID}} {{user.identification}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Teléfono: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.phone}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Correo: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.email}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Perfil: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.profile_ID | titlecase}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Estado: </div>
+                <div class="dt-info half-part align-right">
+                    <img [hidden]="!user.state" src="assets/img/states/Aprobado.png">
+                    <img [hidden]="user.state" src="assets/img/states/Rechazado.png">
+                </div>        
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+               <div class="dt-info"></div>    
+            </div>
+        </div>
+        <button [routerLink]="['/administration/users-list']" class="primary-theme-button margin-top-30" >Volver al Inicio</button>
+    </div>
+</div>

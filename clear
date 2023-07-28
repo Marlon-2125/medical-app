@@ -1,0 +1,347 @@
+[33mcommit 69c623c4e7114217fa5a5a795e0577c62837adbd[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: b89385c 62e2ef8
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 16 11:51:13 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit b89385c62c5f584422e87759969f8ca076031aa2[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 16 11:51:02 2021 -0500
+
+    7.4 Módulo de CRUD: Vista de Update de Usuario
+
+[33mcommit 62e2ef8b525ed8c9c9baaf425fb13fb1e110b710[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Fri Jul 16 11:30:08 2021 -0500
+
+    8.0 Creación de Usuarios: Vista de creación de usuarios y funcionalidad básica.
+
+[33mcommit 8ca5e955dbb91299eab0426e46ca0b6a9107151b[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 18:05:43 2021 -0500
+
+    Issue Fixed: Corrección de tipo de error en método getRole.
+
+[33mcommit b8af5feac9ab5028baf29649e1709658477da7ae[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 17:21:01 2021 -0500
+
+    7.3 Ver Usuario: se envian la data del usuario según su id
+
+[33mcommit 56603237cbe5f2cacde7324a718852f0b7881ff5[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 16:34:48 2021 -0500
+
+    Issue Fixed: Estilos globales de cajas centradas
+
+[33mcommit 36a5c86456c76666f90cb3c7728b44d7aecee67b[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 11:58:35 2021 -0500
+
+    Issue Fixed: problemas con nombres de carpetas pendientes en commit.
+
+[33mcommit 3962376fc61b4491ccf928eccac7aa7ea46ddf32[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 10:59:06 2021 -0500
+
+    7.2 Servicios Firebase: Corrección de servicio de consulta por usuario
+
+[33mcommit a1800f6ca5656cc53fe96497c435bc6f41ed034a[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 10:56:15 2021 -0500
+
+    7.1 Servicios Firebase: Eliminar usuario finalizado.
+
+[33mcommit a953f89fe9dfe2e61adc8927849c5fa6072f1ea7[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 15 09:30:00 2021 -0500
+
+    Issue Fixed Interfaz de Navegación.
+
+[33mcommit 9feb5560ee77a4490781cdf9707e432f2bc16e3c[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jul 14 21:22:44 2021 -0500
+
+    6.3 Finalización de Claims
+
+[33mcommit ade4fe669949c2ade4c07c9a9d41ec6f3662b018[m
+Merge: 49dab32 f223c97
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jul 14 16:08:08 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 49dab3201a24ca17f5c2510f2a9842790e8e30d1[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jul 14 16:08:00 2021 -0500
+
+    6.1 Claims y Privilegios: Redirecciones segun perfil y ajustes visuales
+
+[33mcommit f223c9796839cc6a8ad70a1558020cb828fe38c7[m
+Merge: 6170bc3 a6cf278
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Wed Jul 14 15:43:08 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 6170bc34e58557f40ddc88745872f03496b9602a[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Wed Jul 14 15:42:38 2021 -0500
+
+    7.0 Servicios Firebase
+
+[33mcommit a6cf278a3fe115b25c91e7362c5c4ce2cfdc5b7f[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jul 14 09:10:23 2021 -0500
+
+    Issue Fixed Redireccionamiento en Guard
+
+[33mcommit cfb57b16aeb55a4beb0dbad21939acb5ccbbaf21[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Tue Jul 13 23:29:42 2021 -0500
+
+    6.0 Claims y Perfiles
+
+[33mcommit d6e6c11ac6e1e50b80b6af58997e747a5de066be[m
+Merge: 5127e8c 43e5695
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Tue Jul 13 16:25:26 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 5127e8cb5a5cf80e6ddf2256db080ffc0c1e8524[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Tue Jul 13 16:25:14 2021 -0500
+
+    Issue Fixed: Helpers guard con validaciones por usuarios arreglado.
+
+[33mcommit 43e5695131b9795b6d1a13ac21859f846b6d2618[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Tue Jul 13 12:53:08 2021 -0500
+
+    6.2: Módulo de CRUD de Usuarios: Vista de Detalles de Usuario
+
+[33mcommit ec217c9db70ecd598c29d7a395a87b37b934011e[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Tue Jul 13 11:27:42 2021 -0500
+
+    commit Isuues QA econtrados
+
+[33mcommit bd126f3b71662ee89f52f6f7905971b17b82d44c[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Tue Jul 13 09:43:04 2021 -0500
+
+    commit confirmar contraseña
+
+[33mcommit a370e2d8e16dc4962c8d157c6d7690b554870541[m
+Merge: 89be83d 88bc3dd
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Tue Jul 13 09:21:54 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 89be83d83cd93fe09476c7a9d8241de84305a2e3[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Tue Jul 13 09:21:36 2021 -0500
+
+    commit creacion de usuarios
+
+[33mcommit 88bc3ddf508cf2ea847cdb5c3db8d93d20c3a714[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Tue Jul 13 07:15:11 2021 -0500
+
+    6.1: Módulo de CRUD de Usuarios: Avances en listas de usuarios
+
+[33mcommit 4909aa06cc64a4cc8d259603f88c5abb8561cd46[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Mon Jul 12 17:23:24 2021 -0500
+
+    6.0: Módulo de CRUD de Usuaris: Vista de Lista de Usuarios
+
+[33mcommit 538d06b47e78a7e7a20eae7d4c8c7bab3784f997[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Mon Jul 12 15:58:47 2021 -0500
+
+    5.2 Mejoras y optimizaciones de servicios
+
+[33mcommit a7c0bbfc93ec05220f7c3e42bff04e24333631af[m
+Merge: 35b34ca c9cfe88
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Mon Jul 12 11:06:31 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 35b34cab66fc8c0d224fdfced3ff5df2cc6fab8a[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Mon Jul 12 11:06:22 2021 -0500
+
+    Issues Fixes: arreglo de inputs en bb8-search, arreglo de margenes grids enlaces y otros
+
+[33mcommit c9cfe88befa7e69ec711fdf9847981724c172232[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Mon Jul 12 10:06:26 2021 -0500
+
+    commit Adicionar margen inferior al pie de página.
+
+[33mcommit 27b034cc3f5635df4a5a249d731b1247748348c1[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Mon Jul 12 07:56:08 2021 -0500
+
+    5.0 Finalización de separación de header...
+
+[33mcommit 7c1b3fa81ed6ee83fcbb16cd19a17bc6a019caa6[m
+Merge: 8ca6e4b 69078d8
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 9 14:06:12 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 69078d8cd787a8ebeed8cd7a45bb7d7631727da1[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Fri Jul 9 13:59:03 2021 -0500
+
+    4.1 Módulo de Búsqueda de BB8: Maquetación completa y ajustes adicionales.
+
+[33mcommit 8ca6e4b343abde571cdb4a26699bd78ed0a787af[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 9 13:06:46 2021 -0500
+
+    commit botones del menu principal
+
+[33mcommit 4496d54d562fe9e4499bcaa355fe1bd71c502a88[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Fri Jul 9 11:20:18 2021 -0500
+
+    Issue Fix: Style.css body error de integracion.
+
+[33mcommit 49463fda2e43ee3079bdcc226354c182c3acf8be[m
+Merge: 49e0b97 a933959
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Fri Jul 9 11:04:59 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 49e0b9734d7eafe9aa05b57ca178cd9a9043fe12[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Fri Jul 9 11:04:50 2021 -0500
+
+    4.0 Módulo de Búsqueda de BB8: Inicio de Maquetación y ajustes de rutas.
+
+[33mcommit a933959a1f33eec09810296dcc2cb3e748405b1b[m
+Merge: 727013f 080b341
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 9 10:56:57 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit 727013f06f3be089b0a812469bcf047e66404e2a[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 9 10:56:18 2021 -0500
+
+    commit menu principal
+
+[33mcommit eb51bebdc4d9d7f1ab8b7d47668c168f8d90acb8[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Fri Jul 9 10:54:34 2021 -0500
+
+    commit menu principal
+
+[33mcommit 080b341267f250bb5dd91275ce962cc89f36e72d[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Fri Jul 9 09:32:34 2021 -0500
+
+    3.1 Módulo de Formulario de Solicitud: Chips Multiples selecciones y botón de volver.
+
+[33mcommit d379e6d113c2ef897ad156379694c0ac4c5235e1[m
+Merge: ffe5a9c 196c585
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Thu Jul 8 18:14:07 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit ffe5a9c6d184d15374031c571003ec6a36ee5c7f[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Thu Jul 8 18:12:48 2021 -0500
+
+    commit bb8 detalles
+
+[33mcommit 196c585d21faecab05f0dc279f437eec05158dc8[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 8 17:44:17 2021 -0500
+
+    3.0 Módulo de Formulario de Solicitud: Creación de Botonoes, validaciones y maquetación inicial
+
+[33mcommit 3e8546e7dd44f2e5114ba4bde8ceecc1ab181eea[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 8 16:15:21 2021 -0500
+
+    2.0 Módulo de Detalles del Servicio: Organización de estilos estandarizaciond e clases y ajustes en dashboard
+
+[33mcommit 9c2d360ea560952552fdcb69b13a0cac41cd6f48[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 8 15:16:45 2021 -0500
+
+    2.1 Módulo de Dashboard: Estilos de Listas en tablas adición de imágenes de estado y finalización
+
+[33mcommit cfe7d94e41aa6b596e7a102c3d6f4e1698c0b835[m
+Merge: ccdf170 1eab413
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Thu Jul 8 14:34:59 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit ccdf170293f2c3813f44fa47132ab8246d61f5fb[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Thu Jul 8 14:31:19 2021 -0500
+
+    commit ventana de contingencia detalles.
+
+[33mcommit 1eab413cc80f079922723866d86f3df7fbe489f4[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Thu Jul 8 14:29:48 2021 -0500
+
+    2.0 Módulo de Dashboard de Contingencias: Tabla, Paginación, Arreglo del Profile en header, Estilos y enlaces.
+
+[33mcommit 88d204337c58c5f0df0f4b0eee216b4dad68ebf9[m
+Merge: c58dda1 5ca1c87
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Thu Jul 8 08:41:11 2021 -0500
+
+    Merge branch 'master' of https://bitbucket.org/tigo-apps/asistente-de-campo
+
+[33mcommit c58dda188a3bbf11c5fe311139791bd4f12b578e[m
+Author: Laura Marin <laura_marin23151@elpoli.edu.co>
+Date:   Thu Jul 8 08:37:09 2021 -0500
+
+    commit menu desplegable
+
+[33mcommit 5ca1c87200b1e8abeb443fb0a3fe6501141caca2[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jul 7 19:36:43 2021 -0500
+
+    1.2 Módulo de Autenticación: Se realizaron ajustes eliminación de dependecias no necesarias y mejora de estilos CSS
+
+[33mcommit 102afd5fe35a9364ab1652104750536bd08d5cb7[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jul 7 08:38:30 2021 -0500
+
+    1.1 Módulo de Autenticación: Validaciones y Ajustes en Dependencias.
+
+[33mcommit 62c467f3d939b249873b489da685c31ac1b1b93f[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Mon Jul 5 00:03:22 2021 -0500
+
+    1.0 Módulo de Autenticación, Servicio Auth, Guard y Rutas.
+
+[33mcommit 47440572a6a112bde73c83ea593f3bb84ba6645e[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jun 30 14:52:23 2021 -0500
+
+    Inicialización del Repositorio...
+
+[33mcommit 082a66c4e4a4ac73ecae7413a68ddac7e3d1b605[m
+Author: Marlon Andres Navarrete <marlonsanav@gmail.com>
+Date:   Wed Jun 30 19:00:25 2021 +0000
+
+    Initial commit

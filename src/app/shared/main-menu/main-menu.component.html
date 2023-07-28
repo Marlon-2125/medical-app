@@ -1,0 +1,27 @@
+<section id="main">
+    <div class="container">
+        <div class="full-center">
+            <div class="mn-img">
+                <img width="280" src="assets/img/logo.png" alt="">
+            </div>
+
+            <p class="sc-paragraph-menu">
+                Elige el motivo de consulta a la aplicación
+            </p>
+            <div class="navigation-menu">
+                <div class="bt-button-menu">
+                    <button [routerLink]="['/administration/users-list']" class="primary-theme-button">ADMINISTRAR PACIENTES</button>
+                </div>
+                <div class="bt-button-menu">
+                    <button [routerLink]="['/contingencies/dashboard']" class="primary-theme-button">ALERTAS VITALES</button>
+                </div>
+                <div class="bt-button-menu">
+                    <button [routerLink]="['/bb8/bb8-search']" class="primary-theme-button">CONSULTAS HISTORIAL</button>
+                </div>
+                <div class="bt-button-menu">
+                    <button [routerLink]="['/scale-infraestructure/dashboard']" class="primary-theme-button">AYUDA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

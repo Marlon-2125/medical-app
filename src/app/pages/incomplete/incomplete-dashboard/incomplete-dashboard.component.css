@@ -1,0 +1,81 @@
+.incomplete-search-form .mat-input{
+    border-radius: 100%;
+}
+
+.incomplete-search-address-form mat-form-field{
+    width: 100%;
+    font-family: Poppins;
+    text-align: center;
+}
+
+::ng-deep .incomplete-search-address-form .mat-form-field-appearance-outline .mat-form-field-flex{
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
+    border-radius: 50px;
+}
+
+::ng-deep .incomplete-search-address-form .mat-form-field-outline-end, ::ng-deep .incomplete-search-address-form .mat-form-field-outline-gap{
+    border-radius: 50px 50px 50px 50px !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+}
+
+::ng-deep  .incomplete-search-address-form .mat-form-field-outline-start{
+    border-radius: 50px 50px 50px 50px !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+    min-width:auto !important;
+}
+
+::ng-deep  .incomplete-search-address-form .mat-form-field-infix{
+    display: inline-flex !important;
+}
+
+
+.incomplete-search-city-form mat-form-field{
+    width: 100%;
+    font-family: Poppins;
+    text-align: center;
+}
+
+::ng-deep .incomplete-search-form .mat-form-field-suffix {
+    top: -0.4em !important;
+}
+
+::ng-deep .incomplete-search-city-form .mat-form-field-appearance-outline .mat-form-field-flex{
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
+    border-radius: 50px;
+}
+
+::ng-deep .incomplete-search-city-form .mat-form-field-outline-end, ::ng-deep .incomplete-search-city-form .mat-form-field-outline-gap{
+    border-top-style: none !important;
+    border-bottom-style: none !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+}
+
+::ng-deep .incomplete-search-city-form .mat-form-field-outline-start{
+    border-top-style: none !important;
+    border-bottom-style: none !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+    min-width:auto !important;
+}
+
+::ng-deep  .incomplete-search-city-form .mat-form-field-infix{
+    display: inline-flex !important;
+    border-top: 0;
+    padding-top: 17px;
+    padding-bottom: 14px;
+}
+
+
+.list-active-services{
+    list-style: none;
+    display: inline-flex;
+    text-align: center;
+    margin: auto;    
+}
+
+.list-active-services li img{
+    filter: invert(40%) sepia(93%) saturate(1102%) hue-rotate(87deg) brightness(99%) contrast(119%); 
+}

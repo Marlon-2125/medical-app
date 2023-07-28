@@ -1,0 +1,37 @@
+.lg-forbidden-container{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.lg-forbidden-content{
+    position: absolute;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+@media(max-width:768px){
+    .lg-forbidden-content{
+        position: inherit;
+        width: 100%;
+        margin-top: 40px; 
+        top: auto;
+        left: auto;
+        transform: translate(0%, 0%);
+    }
+    .lg-forbidden-content .img-access-denied{
+        width: 100%;
+    }
+}
+@media(max-height:800px){
+    .lg-forbidden-content{
+        position: inherit;
+        width: 100%;
+        margin-top: 40px; 
+        top: auto;
+        left: auto;
+        transform: translate(0%, 0%)
+    }
+}

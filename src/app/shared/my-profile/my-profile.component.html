@@ -1,0 +1,61 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title align-center">
+            Hola <span>{{user.names}}</span>
+        </div>
+        <p class="sc-paragraph align-center">
+            Aqui puedes ver la información de tu usuario.
+        </p>
+
+        <div class="dt-container">
+            <div class="dt-item">
+                <div class="dt-title half-part">Identificación: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.type_ID}}-{{user.identification}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Nombre Completo: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.names}} {{user.surnames}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Teléfono: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.phone}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Correo Electrónico: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.email}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Ubicación: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.location}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Perfil: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{user.profile_ID | titlecase}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br>
+    </div>
+    <div [routerLink]="['/login']" class="floating-back">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+</div>
+

@@ -1,0 +1,131 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title align-center">
+            <span>Edición de Usuarios</span>
+        </div>
+        <p class="sc-paragraph">
+            Debe modificar alguno de los campos habilitados.
+        </p>
+        <form [formGroup]="userEditForm" (ngSubmit)="onSubmit()">
+            <div class="usr-type-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Tipo de Identificación</mat-label>
+                    <mat-select formControlName="typeIdUsr" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of typeId" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>tipo de Identificación</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-identification-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Identificación</mat-label>
+                    <input matInput formControlName="identificationUsr" type="number" autocomplete="off">
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.identificationUsr.dirty && userEditForm.controls.identificationUsr.hasError('max')">
+                        El número de identificación es <strong>muy largo</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userEditForm.controls.identificationUsr.dirty && userEditForm.controls.identificationUsr.hasError('min')">
+                        El número de identificación es <strong>muy corto</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-names-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput formControlName="namesUsr" type="text" autocomplete="off">
+                    <mat-icon matSuffix>badge</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.namesUsr.dirty && userEditForm.controls.namesUsr.errors?.maxlength">
+                        El nombre es <strong>muy largo</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userEditForm.controls.namesUsr.dirty && userEditForm.controls.namesUsr.errors?.minlength">
+                        El nombre es <strong>muy corto</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-surnames-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput formControlName="surnamesUsr" type="text" autocomplete="off">
+                    <mat-icon matSuffix>group_add</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.surnamesUsr.dirty && userEditForm.controls.surnamesUsr.errors?.maxlength">
+                        El apellido es <strong>muy largo</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userEditForm.controls.surnamesUsr.dirty && userEditForm.controls.surnamesUsr.errors?.minlength">
+                        El apellido es <strong>muy corto</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-phone-form">
+                <mat-form-field appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput formControlName="phoneUsr" type="number">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.phoneUsr.dirty && userEditForm.controls.phoneUsr.hasError('max')">
+                        El número de teléfono es <strong>muy largo</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userEditForm.controls.phoneUsr.dirty && userEditForm.controls.phoneUsr.hasError('min')">
+                        El número de teléfono es <strong>muy corto</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-email-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Correo</mat-label>
+                    <input matInput formControlName="emailUsr" type="text" autocomplete="off">
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.emailUsr.dirty && userEditForm.controls.emailUsr.invalid ">
+                        El correo electrónico es <strong>obligatorio</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-password-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Nueva Contraseña (Opcional)</mat-label>
+                    <input matInput (keyup)="verifyPassword($event)" formControlName="passwordUsr" type="password" autocomplete="off">
+                    <mat-icon matSuffix>fingerprint</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.passwordUsr.dirty && userEditForm.controls.passwordUsr.invalid ">
+                        Debe tener al menos entre 8 y 16 caracteres, un dígito, una mayúscula y un caracter no alfanumérico.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-confirm-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Confirmar Contraseña</mat-label>
+                    <input matInput (keyup)="validatePassword($event)" formControlName="cPasswordUsr" type="password" placeholder="Escriba la contraseña" [disabled]="isDisabled" autocomplete="off">
+                    <mat-icon matSuffix>fingerprint</mat-icon>
+                    <mat-error *ngIf="userEditForm.controls.cPasswordUsr.dirty">Las contraseñas no coinciden</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="usr-role-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Perfil</mat-label>
+                    <mat-select formControlName="profileUsr" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of profileId" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>Perfil</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="hidden-form">
+                <mat-form-field>
+                    <input matInput formControlName="authIdUsr" type="text">
+                </mat-form-field>
+            </div>
+            <div class="hidden-form">
+                <mat-form-field>
+                    <input matInput formControlName="userIdUsr" type="text">
+                </mat-form-field>
+            </div>
+            <button class="user-submit-form primary-theme-button" [class.spinner]="loading" [disabled]="loading" type="submit" color="primary">Actualizar Usuario</button>
+        </form>
+    </div>
+    <div [routerLink]="['/administration/users-list']" class="floating-back">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+</div>

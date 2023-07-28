@@ -1,0 +1,101 @@
+<ngx-loading-bar></ngx-loading-bar>
+
+<div id="main">
+    <div class="container">
+        <div class="sc-title">
+            Consultas <span>BB8.</span>
+        </div>
+        <br>
+        <form [formGroup]="bb8SearchForm" (ngSubmit)="onSubmit()" class="bb8-search-form">
+
+            <div class="bb8-search-city-form" style="width: 100%;">
+                <mat-form-field appearance="outline">
+                    <mat-icon matPreffix>search</mat-icon>
+                    <input type="text" matInput formControlName="citySf" required placeholder="Busque por ciudad"
+                        [matAutocomplete]="autoGroup">
+                    <mat-icon matSuffix>place</mat-icon>
+                    <mat-autocomplete #autoGroup="matAutocomplete">
+                        <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.departamento">
+                            <mat-option *ngFor="let name of group.ciudades" [value]="name">
+                                {{name}}
+                            </mat-option>
+                        </mat-optgroup>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <div class="bb8-search-address-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-icon matPreffix>search</mat-icon>
+                    <input matInput formControlName="addressSf" type="text" placeholder="Escriba la dirección">
+                    <mat-icon #tooltip="matTooltip"
+                    (click)="tooltip.toggle()"
+                    matTooltip="Nomenclatura: KL - KRA - CSA"
+                    matTooltipPosition="below"
+                    matTooltipHideDelay="200000"
+                    aria-label="Este botón indica las nomenclaturas necesarias" matSuffix>not_listed_location</mat-icon>
+                </mat-form-field>
+            </div>
+
+        </form>
+
+        <div class="response-data" *ngIf="dataResponse.code">
+            <div class="response-data-img"><img src="assets/img/{{dataResponse.status}}.png" alt=""></div>
+            <div class="response-data-title">{{dataResponse.title}}</div>
+            <div class="response-data-text">{{dataResponse.response}}</div>
+        </div>
+
+        <table *ngIf="!loadingData && dataResponse.code == 200" width="100%" mat-table [dataSource]="dataSourceX" class="tb-contingency-request">
+            <!-- Position Column -->
+            <ng-container matColumnDef="CLIENTE">
+                <th mat-header-cell *matHeaderCellDef> Nombre. </th>
+                <td mat-cell *matCellDef="let element"> {{element.CLIENTE}} </td>
+            </ng-container>
+
+            <!-- Reference Column -->
+            <ng-container matColumnDef="DIRECCION">
+                <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                <td mat-cell *matCellDef="let element"> {{element.DIRECCION}} </td>
+            </ng-container>
+
+            <!-- Date Request Column -->
+            <ng-container matColumnDef="GIS">
+                <th mat-header-cell *matHeaderCellDef> Estado del S. </th>
+                <td mat-cell *matCellDef="let element">
+                    <ul class="list-active-services">
+                        <li *ngIf="element.INTERNET"><img src="../../../assets/img/services/service-wifi.png"></li>
+                        <li *ngIf="element.TELEVISION"><img src="../../../assets/img/services/service-tv.png"></li>
+                        <li *ngIf="element.TELEFONIA"><img src="../../../assets/img/services/service-phone.png"></li>
+                    </ul>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+        <div class="is-not-data align-center" *ngIf="loadingData == false && dataSource.length == 0 && dataResponse.code == 0">
+            <div class="img-not-data"><img src="assets/img/is-not-data.png" alt=""></div>
+            <div class="text-not-data">En el momento no hay solicitudes finalizadas.</div>            
+        </div>
+
+        <div class="loading-circle" *ngIf="loadingData">
+            <div class="loadingio-spinner-ripple">
+                <div class="ldio">
+                    <div></div><div></div>
+                </div>
+            </div>
+            <div class="loading-circle-message">
+                <div class="loading-circle-message-title">Solicitud en proceso.</div>
+                <p>Por favor espere mientras su solicitud es respondida por el sistema automático de respuestas.</p>
+            </div>
+        </div>
+
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+
+        <button (click)="onSubmit()" class="cg-link primary-theme-button" [class.spinner]="loading" [disabled]="loading"
+            color="primary">Consultar</button>
+
+    </div>
+</div>

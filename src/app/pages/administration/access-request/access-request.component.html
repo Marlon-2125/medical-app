@@ -1,0 +1,70 @@
+<ngx-loading-bar></ngx-loading-bar>
+
+<div id="main">
+    <div class="container">
+        <div class="sc-title parent-div">
+            Solicitudes de <span>Acceso. </span><a [routerLink]="['/administration/users-list']" class="primary-theme-button slim slim-xs">Ver Lista de Usuarios</a>
+            <span (click)="exportCsv()" class="export-csv"></span>
+        </div>
+        <br>
+        <div class="users-search-form">
+            <div class="users-search-address-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-icon matPreffix>search</mat-icon>
+                    <input matInput (keyup)="applyFilter($event)" value="" placeholder="Escriba la cédula o el mótivo para filtrar" name="applyFilter">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <table width="100%" mat-table [dataSource]="dataSourceX" class="tb-contingency-request" matSort>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Estado. </th>
+                <td mat-cell *matCellDef="let element"><img src="assets/img/semaphore/{{element.status}}.png"> </td>
+            </ng-container>
+            
+            <!-- Position Column -->
+            <ng-container matColumnDef="identification">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Identificación. </th>
+                <td mat-cell *matCellDef="let element"> {{element.identification}} </td>
+            </ng-container>
+
+            <!-- Reference Column -->
+            <ng-container matColumnDef="comments">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Motivo. </th>
+                <td mat-cell *matCellDef="let element"> {{element.comments}} </td>
+            </ng-container>
+
+            <!-- Date Request Column -->
+            <ng-container matColumnDef="options">
+                <th mat-header-cell *matHeaderCellDef> Opciones. </th>
+                <td mat-cell *matCellDef="let element">
+                    <ul class="list-options-users">
+                        <li><a (click)="onCheckUserExist(element.identification)"><img width="24" src="assets/img/options/find.png"></a></li>
+                        <li><a (click)="onCreateUserByRequest(element.identification, element.requestId)"><img width="24" src="assets/img/options/add.png"></a></li>
+                        <li><a (click)="onResetCredentials(element.identification, element.requestId)"><img width="24" src="assets/img/options/reset.png"></a></li>
+                        <li><a (click)="onApproveRequest(element.requestId)"><img width="24" src="assets/img/options/check.png"></a></li>
+                    </ul>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div class="loading-circle" *ngIf="loadingData">
+            <div class="loadingio-spinner-ripple">
+                <div class="ldio">
+                    <div></div><div></div>
+                </div>
+            </div>
+        </div>
+
+        <mat-paginator #paginator [pageSizeOptions]="[5, 20, 50]" showFirstLastButtons></mat-paginator>
+
+        <button (click)="onCreateAllUsersByRequest()" class="cg-link primary-theme-button" [class.spinner]="loading"
+            [disabled]="loading" color="primary">Aprobar Todo</button>
+
+    </div>
+</div>

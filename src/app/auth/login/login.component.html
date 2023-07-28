@@ -1,0 +1,58 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<header>
+    <div class="hd-img-logo">
+        <a href="">
+            <img src="./assets/img/logo.png">
+        </a>
+    </div>
+    <div class="hd-contact-phone">
+        <a [routerLink]="['/faq']">
+            <img src="./assets/img/help.png" alt="">
+        </a>
+    </div>
+</header>
+<div class="lg-form-container">
+    <div class="lg-form-content full-center">
+        
+        <div class="sc-title">
+            Iniciar <span>Sesión</span>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="lg-email-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Nombre de Usuario</mat-label>
+                    <input matInput formControlName="emailUser" type="text"
+                        placeholder="Escriba su usuario">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <mat-error *ngIf="loginForm.controls.emailUser.dirty && loginForm.controls.emailUser.invalid ">
+                        Ingrese un usuario <strong>válido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="lg-password-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="passwordUser" [type]="passwordTextType ? 'text' : 'password'" ng-model="cristiano"
+                        placeholder="Escriba su contraseña">
+                    <mat-icon (click)="togglePasswordTextType()" *ngIf="passwordTextType" matSuffix>visibility</mat-icon>
+                    <mat-icon (click)="togglePasswordTextType()" *ngIf="!passwordTextType" matSuffix>visibility_off</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <p class="lg-problems-form"><a [routerLink]="['/auth/user-register']">Crear una nueva cuenta.</a></p>
+
+            <button class="lg-submit-form primary-theme-button" [class.spinner]="loading" [disabled]="loading"
+                type="submit" color="primary">Iniciar Sesión</button>
+
+        </form>
+
+        <div class="lg-img">
+            <img src="../../assets/img/img-login.png" alt="">
+        </div>
+
+        <p class="lg-problems-form">Versión 1.0 @Medical</p>
+    </div>
+</div>

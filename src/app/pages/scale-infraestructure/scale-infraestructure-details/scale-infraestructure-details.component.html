@@ -1,0 +1,73 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title">
+            <span>Detalles de la Solicitud</span>
+        </div>
+        <p class="sc-paragraph">
+            Estas son los detalles de la solicitud de escalamiento a infraestructura.
+        </p>
+
+        <div class="dt-container">
+            <div class="dt-item">
+                <div class="dt-title half-part">Fecha Solicitud: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{infraestructure.dateCreated.seconds * 1000 | date:'dd/MM/yyyy h:mm:ss'}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Fecha Gestión: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{infraestructure.answer_Date || ''}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Pedido: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{infraestructure.task}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Proceso: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>{{infraestructure.process}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Producto: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>{{infraestructure.product}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Motivo: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>{{infraestructure.subject}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title">Detalles de Solicitud: </div>
+                <div class="dt-info">
+                    <p>{{infraestructure.comments}}</p>
+                </div>
+            </div>
+            <div class="dt-item">
+                <div class="dt-title">Respuesta de Solicitud: </div>
+                <div class="dt-info">
+                    <p>{{infraestructure.answer}}</p>
+                </div>
+                <p class="align-center">
+                    <img src="assets/img/states/{{infraestructure.infraestructure_Status}}.png" alt="">
+                </p>          
+            </div>
+
+        </div>
+        <button [routerLink]="['/scale-infraestructure/dashboard']" class="primary-theme-button margin-top-30" >Volver al Inicio</button>
+    </div>
+</div>

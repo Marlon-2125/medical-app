@@ -1,0 +1,111 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<header>
+    <div class="hd-img-logo">
+        <a href="">
+            <img src="./assets/img/logo.png">
+        </a>
+    </div>
+    <div class="hd-contact-phone">
+        <a [routerLink]="['/faq']">
+            <img src="./assets/img/help.png" alt="">
+        </a>
+    </div>
+</header>
+<div class="lg-form-container">
+    <div class="lg-form-content full-center">
+        
+        <div class="sc-title align-center">
+            Crear <span>Cuenta</span>
+        </div>
+
+        <p class="sc-paragraph">Complete el siguiente formulario con sus datos para solicitar la cración de su cuenta.<br><br>Nota: Si ya realizó una solicitud mediante este formulario previamente, consulte el estado a través de este enlace.
+            <br><a (click)="onVerifyAccess()" class="primary-theme-button slim">Verificar Solicitud</a>
+        </p>
+        
+        <form [formGroup]="userRegisterForm" (ngSubmit)="onSubmit()">
+
+            <div class="lg-identification-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label># Identificación</mat-label>
+                    <input matInput formControlName="identificationUser" type="number"
+                        placeholder="Escriba su número de identificación" required>
+                    <mat-icon matSuffix>list_alt</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="lg-identification-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Nombre Completo</mat-label>
+                    <input matInput formControlName="fullnameUser" type="text"
+                        placeholder="Escriba su nombre completo" required>
+                    <mat-icon matSuffix>list_alt</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="lg-comments-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Tipo de Usuario</mat-label>
+                    <mat-select formControlName="comments" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsComments" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>   
+                    <mat-error *ngIf="true">Por favor elija una <strong>opción</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+
+            <button class="primary-theme-button" [class.spinner]="loading" [disabled]="loading"
+                type="submit" color="primary">Solicitar Acceso</button>
+            
+            <div class="sc-divider">
+                <div class="divider-text">Paciente Asociado</div>
+            </div>
+
+            <p class="sc-paragraph align-center" style="color:rgb(139, 139, 139)">Luego del envío de información, los siguientes campos serán llenados desde la plataforma.</p>
+            <br>
+
+            <div class="lg-names-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="namesUser" type="text"
+                        placeholder="Escriba sus nombres">
+                    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+                    <!-- <mat-error *ngIf="userRegisterForm.controls.emailUser.dirty && userRegisterForm.controls.emailUser.invalid ">
+                        Ingrese un correo electrónico <strong>valido</strong>
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+
+            <div class="lg-surnames-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="surnamesUser" type="text"
+                        placeholder="Escriba sus apellidos">
+                    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="lg-click-user-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Usuario de Medical</mat-label>
+                    <input matInput formControlName="clickUser" type="email"
+                        placeholder="Escriba el usuario que usa en medical">
+                    <mat-icon matSuffix>verified_user</mat-icon>
+                </mat-form-field>
+            </div>            
+
+        </form>
+        
+
+        <div class="lg-img hidden-pc">
+            <img src="../../assets/img/img-login.png" alt="">
+        </div>
+
+    </div>
+
+    <div [routerLink]="['/login']" class="floating-back">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+</div>

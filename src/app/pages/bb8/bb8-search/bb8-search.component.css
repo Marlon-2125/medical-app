@@ -1,0 +1,130 @@
+.tb-contingency-request{
+    width: 100%;
+    border-spacing: 0 10px;    
+    overflow: hidden;
+    background: transparent;
+}
+.tb-contingency-request th{
+    font-family: Poppins;
+    font-weight: bolder;
+    font-size: 15px;
+    color: #000;
+    text-align: center;
+    border-bottom: 3px solid linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
+}
+.tb-contingency-request .mat-row{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.10);
+    border-radius: 100%;
+    overflow: hidden;
+    background: white;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+.tb-contingency-request .mat-row:hover{
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.10);
+    background-color: aliceblue; 
+}
+.tb-contingency-request td{
+    font-family: Poppins;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+.tb-contingency-request tr td:first-child { 
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 5px 0 0 0;
+}
+.tb-contingency-request tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.mat-paginator{
+    background: transparent !important;
+}
+.mat-optgroup-label{
+    display: none !important;
+}
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    border-bottom-color: transparent;
+}
+
+.bb8-search-form .mat-input{
+    border-radius: 100%;
+}
+
+.bb8-search-address-form mat-form-field{
+    width: 100%;
+    font-family: Poppins;
+    text-align: center;
+}
+
+::ng-deep .bb8-search-address-form .mat-form-field-appearance-outline .mat-form-field-flex{
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
+    border-radius: 50px;
+}
+
+::ng-deep .bb8-search-address-form .mat-form-field-outline-end, ::ng-deep .bb8-search-address-form .mat-form-field-outline-gap{
+    border-radius: 50px 50px 50px 50px !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+}
+
+::ng-deep  .bb8-search-address-form .mat-form-field-outline-start{
+    border-radius: 50px 50px 50px 50px !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+    min-width:auto !important;
+}
+
+::ng-deep  .bb8-search-address-form .mat-form-field-infix{
+    display: inline-flex !important;
+}
+
+
+.bb8-search-city-form mat-form-field{
+    width: 100%;
+    font-family: Poppins;
+    text-align: center;
+}
+
+::ng-deep .bb8-search-form .mat-form-field-suffix {
+    top: -0.4em !important;
+}
+
+::ng-deep .bb8-search-city-form .mat-form-field-appearance-outline .mat-form-field-flex{
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
+    border-radius: 50px;
+}
+
+::ng-deep .bb8-search-city-form .mat-form-field-outline-end, ::ng-deep .bb8-search-city-form .mat-form-field-outline-gap{
+    border-top-style: none !important;
+    border-bottom-style: none !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+}
+
+::ng-deep .bb8-search-city-form .mat-form-field-outline-start{
+    border-top-style: none !important;
+    border-bottom-style: none !important;
+    border-right-style: none !important;
+    border-left-style: none !important;
+    min-width:auto !important;
+}
+
+::ng-deep  .bb8-search-city-form .mat-form-field-infix{
+    display: inline-flex !important;
+}
+
+
+.list-active-services{
+    list-style: none;
+    display: inline-flex;
+    text-align: center;
+    margin: auto;    
+}
+
+.list-active-services li img{
+    filter: invert(40%) sepia(93%) saturate(1102%) hue-rotate(87deg) brightness(99%) contrast(119%); 
+}

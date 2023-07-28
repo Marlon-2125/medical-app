@@ -1,0 +1,29 @@
+<header>
+    <div class="hd-img-logo">
+        <div class="hd-hamburger">
+            <label for="check">
+                <input type="checkbox" id="check" (change)="onOpenMenu($event)"/> 
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </div>
+    <div class="hd-menu-perfil">
+        <button class="hd-my-profile" #matMenuProfileTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" aria-controls="simple-menu" aria-haspopup="true">
+            Mi Perfil 
+            <mat-icon class="hd-my-profile-icon">
+                {{matMenuProfileTrigger.menuOpen ? 'keyboard_arrow_up': 'keyboard_arrow_down'}}</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/my-profile']"><mat-icon matSuffix>person</mat-icon>Mi Perfil</button>
+                <button (click)="onLogout()" mat-menu-item><mat-icon matSuffix>input</mat-icon>Cerrar Sesión</button>
+        </mat-menu>
+    </div>
+    <div class="hd-contact-phone">
+        <a [routerLink]="['/faq']">
+            <img src="./assets/img/help-white.png" alt="">
+        </a>
+    </div>    
+</header>
+<app-side-menu></app-side-menu>

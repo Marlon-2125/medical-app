@@ -1,0 +1,474 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title align-center">
+            <span>Escalamiento Infraestructura</span>
+        </div>
+        <p class="sc-paragraph">
+            Todos los campos son obligatorios para escalar, al seleccionar el proceso, productos y motivo del escalamiento le cargan los campos obligatorios para cada combinación.
+        </p>
+        <p class="sc-paragraph">
+            <strong>Nota:</strong> Si el cable modem es <strong>Obsoleto</strong> tiene que cambiarlo antes de escalar.
+        </p>
+        <form [formGroup]="scaleInfraesctrureForm" (ngSubmit)="onSubmit()">
+            <div class="sif-isphoto-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>¿Adjunto la foto?</mat-label>
+                    <mat-select formControlName="isPhotoSif" autocomplete="off" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsIsPhoto" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor seleccione <strong>una opción</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="sif-smnettest-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>¿Realizó Prueba SMNet?</mat-label>
+                    <mat-select formControlName="isSmnetTestSif" autocomplete="off" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsIsSmnetTest" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor seleccione <strong>una opción</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="sif-process-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Proceso</mat-label>
+                    <mat-select formControlName="processSif" required (selectionChange)="filterFields()">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsProcessSif" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>tipo de contingencia</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="sif-product-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Producto</mat-label>
+                    <mat-select formControlName="productSif" required (selectionChange)="filterFields()">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsProductSif" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>tipo de contingencia</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="sif-task-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Pedido</mat-label>
+                    <input matInput formControlName="taskSif" type="text"
+                        placeholder="Escriba el identificador de su tarea" autocomplete="off" required>
+                    <mat-icon matSuffix>assignment</mat-icon>
+                    <mat-error *ngIf="scaleInfraesctrureForm.controls.taskSif.dirty && scaleInfraesctrureForm.controls.taskSif.invalid">
+                        El campo de pedido solo puede contener <strong>números y guiones medios.</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="sif-subject-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Motivo de Escalamiento</mat-label>
+                    <mat-select formControlName="subjectSif" required (selectionChange)="filterFields()">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsSubject" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>tipo de contingencia</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>   
+            <div class="sif-identification-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>N° Identificación</mat-label>
+                    <input matInput formControlName="userIdentificationSif" type="text" required>
+                    <mat-icon matSuffix>assignment_ind</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="sif-email-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Correo Electrónico</mat-label>
+                    <input matInput formControlName="emailUsrSif" type="text" required>
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="hidden-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput formControlName="userIdSif" type="text" required>
+                </mat-form-field>
+            </div>            
+            <br>
+            <div class="sc-subtitle align-center">
+                La marca del TAP es la placa roja con la cual esta numerado el TAP
+            </div>
+            <br>
+            <div class="sif-marktap-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Marcación TAP</mat-label>
+                    <input matInput formControlName="markTAPSif" type="number"
+                        placeholder="Escriba la marcación del TAP" autocomplete="off" required>
+                    <mat-icon matSuffix>event_note</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="sif-addresstap-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Dirección del TAP</mat-label>
+                    <input matInput formControlName="addressTAPSif" type="text"
+                        placeholder="Escriba la dirección del TAP" autocomplete="off" required>
+                    <mat-icon matSuffix>event_note</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="sif-vtap-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Valor del TAP</mat-label>
+                    <mat-select formControlName="vTAPSif" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsVTap" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija un <strong>valor del TAP</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="sif-macrealcpe-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Mac Real CPE</mat-label>
+                    <input matInput formControlName="macRealCPESif" type="text"
+                        placeholder="Escriba el Mac Real CPE" autocomplete="off" required>
+                    <mat-icon matSuffix>event_note</mat-icon>
+                </mat-form-field>
+            </div>
+            <!-- Campos Dinámicos -->
+            <div *ngIf="isChbalance" class="sif-chbalance">
+                <div class="sif-nettype-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Tipo de Red</mat-label>
+                        <mat-select formControlName="netTypeSif" required>
+                            <mat-option>--</mat-option>
+                            <mat-option *ngFor="let item of itemsNetType" [value]="item.value">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="true">Por favor elija un <strong>valor del TAP</strong></mat-error>
+                        <mat-hint></mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="sif-rfch-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH 14</mat-label>
+                        <input matInput formControlName="rf14" type="number"
+                            placeholder="Escriba el RF CH 14" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="scaleInfraesctrureForm.controls.netTypeSif.value == '750'" appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH 120</mat-label>
+                        <input matInput formControlName="rf120" type="number"
+                            placeholder="Aplica 750" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="scaleInfraesctrureForm.controls.netTypeSif.value == '870'" appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH 135</mat-label>
+                        <input matInput formControlName="rf135" type="number"
+                            placeholder="Aplica 870" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="scaleInfraesctrureForm.controls.netTypeSif.value == '1000'" appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH 157</mat-label>
+                        <input matInput formControlName="rf157" type="number"
+                            placeholder="Aplica 1000" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isChx" class="sif-chx">
+                <div class="sc-subtitle align-center">
+                    Valores y pruebas docsis con Equipo de Medida. Indicar 2 canales diferentes a los relacionados anteriormente que son los de Balanceo
+                </div>
+                <div class="sif-chx-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>CH x</mat-label>
+                        <input matInput formControlName="chx" type="number"
+                            placeholder="CH diferete a 120,135,157" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH x</mat-label>
+                        <input matInput formControlName="rfx" type="number"
+                            placeholder="dBmV" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isPpqx" class="sif-ppqx">
+                <div class="sif-ppqx-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Perdida de Paquetes CH x</mat-label>
+                        <input matInput formControlName="ppqx" type="number"
+                            placeholder="Aplica Reparaciones" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isMerx" class="sif-merx">
+                <div class="sif-merx-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>MER CHx</mat-label>
+                        <input matInput formControlName="merx" type="number"
+                           autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>BER CHx</mat-label>
+                        <input matInput formControlName="berx" type="text"
+                            placeholder="1,0E-09" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isPupx" class="sif-pupx">
+                <div class="sif-pupx-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Potencia UP CHx</mat-label>
+                        <input matInput formControlName="pupx" type="number"
+                            placeholder="Aplica Reparaciones" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isPdownx" class="sif-pdownx">
+                <div class="sif-pdownx-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Potencia DOWN CHx</mat-label>
+                        <input matInput formControlName="pdownx" type="number" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isPdowny" class="sif-pdowny">
+                <div class="sif-pdowny-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Potencia DOWN CHy</mat-label>
+                        <input matInput formControlName="pdowny" type="number"
+                            autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isChy" class="sif-chy">
+                <div class="sif-chy-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>CH y</mat-label>
+                        <input matInput formControlName="chy" type="number"
+                            placeholder="CH diferete a 120,135,157" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH y</mat-label>
+                        <input matInput formControlName="rfy" type="number"
+                            placeholder="dBmV" autocomplete="off">
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isPpqy" class="sif-ppqy">
+                <div class="sif-ppqy-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Perdida de Paquetes CH y</mat-label>
+                        <input matInput formControlName="ppqy" type="number"
+                            placeholder="Aplica Reparaciones" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isMery" class="sif-mery">
+                <div class="sif-mery-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>MER CHy</mat-label>
+                        <input matInput formControlName="mery" type="number" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>BER CHy</mat-label>
+                        <input matInput formControlName="bery" type="text"
+                            placeholder="1,0E-09" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isPupy" class="sif-pupy">
+                <div class="sif-pupy-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Potencia UP CHy</mat-label>
+                        <input matInput formControlName="pupy" type="number"
+                            placeholder="Aplica Reparaciones" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>            
+            <div *ngIf="isRf89" class="sif-rf89">
+                <div class="sc-subtitle align-center">
+                    Datos para Televisión HFC
+                </div>
+                <p class="sc-paragraph">
+                    Obligatorio llenar CH 89 y 61, los otros si se detecta error en canal específico
+                </p>
+                <div class="sif-rf89-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH 89</mat-label>
+                        <input matInput formControlName="rf89" type="number"
+                            autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isMer89" class="sif-mer89">
+                <div class="sif-mer89-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>MER 89</mat-label>
+                        <input matInput formControlName="mer89" type="number"
+                            autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>BER 89</mat-label>
+                        <input matInput formControlName="ber89" type="text"
+                            placeholder="1,0E-09" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isRf73" class="sif-rf73">
+                <div class="sif-rf73-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH 61</mat-label>
+                        <input matInput formControlName="rf73" type="number"
+                            autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isMer73" class="sif-mer73">
+                <div class="sif-mer73-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>MER 61</mat-label>
+                        <input matInput formControlName="mer73" type="number"
+                            autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>BER 61</mat-label>
+                        <input matInput formControlName="ber73" type="text"
+                            placeholder="1,0E-09" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isChxtv" class="sif-chxtv">
+                <div class="sif-chxtv-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>CH xTV</mat-label>
+                        <input matInput formControlName="chxtv" type="number"
+                            placeholder="CH diferete a 89 y 61" autocomplete="off">
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH xTV</mat-label>
+                        <input matInput formControlName="rfxtv" type="number"
+                            placeholder="dBmV" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isMerxtv" class="sif-merxtv">
+                <div class="sif-merxtv-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>MER CHxTV</mat-label>
+                        <input matInput formControlName="merxtv" type="number" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>BER CHxTV</mat-label>
+                        <input matInput formControlName="berxtv" type="text"
+                            placeholder="1,0E-09" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isChytv" class="sif-chytv">
+                <div class="sif-chytv-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>CH yTV</mat-label>
+                        <input matInput formControlName="chytv" type="number" 
+                            placeholder="CH diferete a 89 y 61" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>RF CH yTV</mat-label>
+                        <input matInput formControlName="rfytv" type="number"
+                            placeholder="dBmV" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div *ngIf="isMerytv" class="sif-merytv">
+                <div class="sif-merytv-form">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>MER CHyTV</mat-label>
+                        <input matInput formControlName="merytv" type="number" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>BER CHyTV</mat-label>
+                        <input matInput formControlName="berytv" type="text"
+                            placeholder="1,0E-09" autocomplete="off" required>
+                        <mat-icon matSuffix>event_note</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- / Campos Dinámicos -->
+            <div class="sif-ismarkinstalled-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Instaló la correa de marcación</mat-label>
+                    <mat-select formControlName="isMarkInstalledSif" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let item of itemsIsMarkInstalled" [value]="item.value">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="true">Por favor elija una <strong>respuesta</strong></mat-error>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="sif-comments-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Observaciones</mat-label>
+                    <input matInput formControlName="commentsSif" type="text"
+                        placeholder="Escriba sus observaciones" autocomplete="off" required>
+                    <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="hidden-form">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput formControlName="concatData" type="text" required>
+                </mat-form-field>
+            </div> 
+
+            <button class="sif-submit-form primary-theme-button" [class.spinner]="loading" [disabled]="loading"
+                type="submit" color="primary">Enviar Solicitud</button>
+        </form>
+    </div>
+    
+    <div [routerLink]="['/scale-infraestructure/dashboard']" class="floating-back">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<ngx-loading-bar [color]="'#fff'"></ngx-loading-bar>
+<div id="main">
+    <div class="container">
+        <div class="sc-title">
+            <span>Detalles de la Solicitud</span>
+        </div>
+        <p class="sc-paragraph">
+            Estas son los detalles de la solicitud de contingencias.
+        </p>
+
+        <div class="dt-container">
+            <div class="dt-item">
+                <div class="dt-title half-part">Fecha Solicitud: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{contingency.contingencies_Date.seconds * 1000 | date:'dd/MM/yyyy h:mm:ss'}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Fecha Gestión: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{contingency.answer_Date || ''}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title half-part">Tarea: </div>
+                <div class="dt-info half-part align-right">
+                    <p>{{contingency.references}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">T. de Contingencia: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>{{contingency.contingencies_Type}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title two-thirds-part">Tipo de Producto: </div>
+                <div class="dt-info one-third-part align-right">
+                    <p>{{contingency.product}}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="dt-item">
+                <div class="dt-title">Detalles de Solicitud: </div>
+                <div class="dt-info">
+                    <p>{{contingency.details}}</p>
+                </div>
+            </div>
+            <div class="dt-item">
+                <div class="dt-title">Respuesta de Solicitud: </div>
+                <div class="dt-info">
+                    <p>{{contingency.answer}}</p>
+                </div>
+                <p class="align-center">
+                    <img src="assets/img/states/{{contingency.contingencies_State}}.png" alt="">
+                </p>          
+            </div>
+
+        </div>
+        <button [routerLink]="['/contingencies/dashboard']" class="primary-theme-button margin-top-30" >Volver al Inicio</button>
+    </div>
+</div>

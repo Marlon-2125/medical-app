@@ -1,0 +1,11 @@
+<aside id="side-nav" class="side-nav-menu">
+  <nav>
+    <ul>
+      <li><a *ngIf="userRole == 1" (click)="onNavigate('/administration/users-list')">Administrar Usuarios</a></li>
+      <li><a *ngIf="userRole == 1 || userRole == 2" (click)="onNavigate('/contingencies/dashboard')">Contingencias</a></li>
+      <li><a *ngIf="userRole == 1 || userRole == 3" (click)="onNavigate('/bb8/bb8-search')">Consultas BB8</a></li>
+      <li><a *ngIf="userRole == 1 || userRole == 2" (click)="onNavigate('/scale-infraestructure/dashboard')">Escalamiento Infraestructura</a></li>
+      <!-- <li><a *ngIf="userRole == 1 || userRole == 2" (click)="onNavigate('/incomplete/dashboard')">Código Incompleto</a></li> -->
+    </ul>
+  </nav>
+</aside>

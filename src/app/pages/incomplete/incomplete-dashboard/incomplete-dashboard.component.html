@@ -1,0 +1,48 @@
+<ngx-loading-bar></ngx-loading-bar>
+
+<div id="main">
+    <div class="container">
+        <div class="sc-title">
+            Código <span>Incompleto.</span>
+        </div>
+        <p class="sc-paragraph">Para realizar una solicitud de código incompleto diligencia el campo de tarea y espere mientras el sistema gestiona su solicitud.</p>
+        <br>
+        <form [formGroup]="incompleteSearchForm" (ngSubmit)="onSubmit()" class="incomplete-search-form">
+
+            <div class="incomplete-search-city-form" style="width: 100%;">
+                <mat-form-field appearance="outline">
+                    <input type="text" matInput formControlName="task" required placeholder="Escribe la tarea" [disabled]="loading">
+                </mat-form-field>
+            </div>
+            
+        </form>
+
+        <div class="response-data" *ngIf="dataResponse.code">
+            <div class="response-data-img"><img src="assets/img/{{dataResponse.status}}.png" alt=""></div>
+            <div class="response-data-title">{{dataResponse.title}}</div>
+            <div class="response-data-text">{{dataResponse.response}}</div>
+        </div>
+
+        <div class="is-not-data align-center" *ngIf="loadingData == false && dataResponse.code == 0">
+            <div class="img-not-data"><img src="assets/img/is-not-data.png" alt=""></div>
+            <div class="text-not-data">En el momento no hay solicitudes finalizadas.</div>            
+        </div>
+        
+
+        <div class="loading-circle" *ngIf="loadingData">
+            <div class="loadingio-spinner-ripple">
+                <div class="ldio">
+                    <div></div><div></div>
+                </div>
+            </div>
+            <div class="loading-circle-message">
+                <div class="loading-circle-message-title">Solicitud en proceso.</div>
+                <p>Por favor espere mientras su solicitud es respondida por el sistema automático de respuestas.</p>
+            </div>
+        </div>        
+
+        <button (click)="onSubmit()" class="cg-link primary-theme-button" [class.spinner]="loading" [disabled]="loading"
+            color="primary">Consultar</button>
+
+    </div>
+</div>
